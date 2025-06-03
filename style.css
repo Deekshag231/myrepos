@@ -1,86 +1,70 @@
-h1{position: absolute;
-    color: white;
-    top: 5rem;
-    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.655);
-}
-
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 #wrapper{
     height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
-    perspective: 10px;
 }
-.container{
-    position: relative;
+.container h1{
+    margin: 20px 0;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 3rem;
+}
+.gallery{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    transform-style: preserve-3d;
-    height: 100%;
-    z-index: -1;
+    gap: 20px;
 }
-.background, .foreground{
-    position: absolute;
-   width: 100%;
-   height: 100%;
-   z-index: -1;
-   object-fit: cover;
-}
-.background{
-    transform: translateZ(-60px) scale(8);
-}
-.foreground{
-    transform: translateZ(-30px) scale(4);
-}
-section{
-    color: white;
-    /* border: 100px solid black; */
-    background-color: rgba(45,45,45);
-    padding: 5rem 0;
-
-    
-}
-.text{
-    padding: 0 10rem;
-    margin: 5rem 0;
-    font-size: 1.5rem;
-
-}
-.sechead{
-    font-size: 5rem;
-    padding: 0 10rem;
-}
-.bg{
+.card{
+    width: 400px;
+    height: 400px;
     position: relative;
-    width:100%;
-    background-attachment: fixed;
-    height: 500px;
-    background-size: cover;
-    background-position: center;
-}
-.bg1{
-    background-image: url(cycling.jpg);
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
     
 }
-.bg2{
-    background-image: url(paragliding.jpg);
-}
-.bg3{
-    background-image: url(surfing.jpg);
-}
-.desc{
-    position: absolute;
-    color: black;
-    background-color: white;
-    padding: 0.5rem 2.5rem;
-    top: 30%;
-    left: 50%;
-    transform: translateX(-50%) translateY(50%);
-    font-size: 70px;
+.card img{
+    height: 100%;
+    width: 100%;
+    filter: grayscale(100%);
+    box-shadow: 0 0 20px #333;
+    object-fit: cover;
 
+}
+.card:hover{
+    transform: scale(1.03);
+    filter: drop-shadow(0 0 10bx #333);
+    transition: 0.3s;
+    box-shadow: -10px -10px 10px #333,10px 10px 10px #333;
+}
+.card:hover img{
+    filter: grayscale(0%);
+
+}
+.card figcaption{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 10%;
+    width: 100%;
+    height: 20%;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    opacity: 0;
+    border-radius: 0 0 10px 10px;
+    background: linear-gradient(0deg,rgba(0,0,0,0.5), rgba(255,255,255,0) 100%);
+    transition: 0.3s;
+}
+.card:hover figcaption{
+    opacity: 1;
+    transform: scale(1.03);
 }
